@@ -1,0 +1,48 @@
+<html>
+<head>
+<script type="text/javascript" src="player.js"></script>
+<link rel="stylesheet" type="text/css" href="player.css">
+</head>
+<body>
+<div id="wrapper">
+ <div id='player_wrapper'>
+  <video id='video_player'>
+   <source src='john.mp4' type='video/mp4'>
+  </video>
+  <div id='player_controls'>
+   <input type="image" src="pause.png" onclick="play_vid()" id="play_button">
+   <input type="image" src="pause.png" onclick="pause_vid()" id="pause_button">
+   <input type="image" src="pause.png" onclick="stop_vid()" id="stop_button">
+  
+  </div>
+ </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() { startplayer(); }, false);
+var player;
+
+function startplayer() 
+{
+ player = document.getElementById('video_player');
+ player.controls = false;
+}
+function play_vid()
+{
+ player.play();
+}
+function pause_vid()
+{
+ player.pause();
+}
+function stop_vid() 
+{
+ player.pause();
+ player.currentTime = 0;
+}
+function change_vol()
+{
+ player.volume=document.getElementById("change_vol").value;
+}
+</script>
+</body>
+</html>
